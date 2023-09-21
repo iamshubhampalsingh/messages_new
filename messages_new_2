@@ -1,0 +1,320 @@
+##############################################Testcase_14#####################################################################
+import uiautomator2 as ui2
+import time
+
+# Connect to the devices
+receiver_device_serial = "192.168.168.16:5555"
+receiver_device = ui2.Device(receiver_device_serial)
+time.sleep(2)
+receiver_device(text="Messages").click()
+time.sleep(2)
+receiver_device(text="Start chat").click()
+time.sleep(2)
+receiver_device.xpath('//android.widget.ScrollView').click()
+time.sleep(2)
+receiver_device.xpath('//android.widget.ScrollView').set_text("Shubham")
+time.sleep(2)
+receiver_device(text="Shubham").click()
+time.sleep(2)
+receiver_device(text="RCS message").set_text("THISISSHUBHAMPALSINGH")
+time.sleep(2)
+receiver_device(resourceId="com.google.android.apps.messaging:id/send_message_button_container").click()
+time.sleep(2)
+
+# Perform a long press on the audio button using swipe
+audio_button = receiver_device(resourceId="com.google.android.apps.messaging:id/audio_button_view_microphone_icon")
+start_x, start_y = audio_button.center()
+end_x, end_y = start_x, start_y
+duration = 2  # Specify the duration for the long press in seconds
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=duration)
+
+# Add a delay to allow time for the long press action to take effect
+time.sleep(2)
+
+# Check if the voice icon is displayed on the screen
+if receiver_device(resourceId="com.google.android.apps.messaging:id/audio_preview_container").exists:
+    print("Voice icon is displaying on the screen")
+else:
+    print("Voice icon is not displaying on the screen")
+
+# Navigate back
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
+print("Test case 14 is pass")
+receiver_device(resourceId="com.android.systemui:id/recent_apps").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.launcher3:id/action_clear_all").click()
+################################################Testcase_15####################################################################
+import uiautomator2 as ui2
+import time
+
+# Connect to the devices
+receiver_device_serial = "192.168.168.16:5555"
+receiver_device = ui2.Device(receiver_device_serial)
+time.sleep(2)
+receiver_device(text="Messages").click()
+time.sleep(2)
+receiver_device(resourceId="com.google.android.apps.messaging:id/og_apd_internal_image_view").click()
+
+# Perform a long press on the button
+button = receiver_device(resourceId="com.google.android.apps.messaging:id/og_apd_internal_image_view")
+button.long_click()
+
+# Add a delay to allow time for the long press action to take effect
+time.sleep(2)
+
+# Navigate to the "Messages settings"
+receiver_device(text="Messages settings").click()
+time.sleep(2)
+
+# Scroll to the end of the screen
+receiver_device(scrollable=True).scroll.toEnd(steps=10)
+time.sleep(2)
+
+# Scroll to the beginning of the screen
+receiver_device(scrollable=True).scroll.toBeginning(steps=10)
+time.sleep(2)
+
+# Check if the "Settings" text is present on the screen
+if receiver_device(text="Settings").exists:
+    print("Setting page is open")
+else:
+    print("Setting page is not open")
+print("Test case 15 is pass")
+receiver_device(resourceId="com.android.systemui:id/recent_apps").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.launcher3:id/action_clear_all").click()
+############################################Testcase16########################################################################
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Connect to the devices
+receiver_device_serial = "192.168.168.16:5555"
+receiver_device = ui2.Device(receiver_device_serial)
+time.sleep(2)
+receiver_device(text="Messages").click()
+time.sleep(2)
+receiver_device(text="Start chat").click()
+time.sleep(2)
+receiver_device.xpath('//android.widget.ScrollView').click()
+time.sleep(2)
+receiver_device.xpath('//android.widget.ScrollView').set_text("Shubham")
+time.sleep(2)
+receiver_device(text="Shubham").click()
+print("test case 16 is pass")
+receiver_device(resourceId="com.android.systemui:id/recent_apps").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.launcher3:id/action_clear_all").click()
+##############################################Test case17#####################################################################
+import uiautomator2 as ui2
+import time
+
+# Connect to the devices
+receiver_device_serial = "192.168.168.16:5555"
+receiver_device = ui2.Device(receiver_device_serial)
+time.sleep(2)
+receiver_device(text="Messages").click()
+time.sleep(2)
+receiver_device(text="Start chat").click()
+time.sleep(2)
+receiver_device.xpath('//android.widget.ScrollView').click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_1_1"]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_1_5"]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_0_6"]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_2_5"]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_1_5"]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_1_0"]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_2_7"]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device(text="Shubham").click()
+time.sleep(2)
+receiver_device(text="RCS message").click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_1_1"]/android.widget.TextView[1]').click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_1_5"]/android.widget.TextView[1]').click()
+# Check if the compose message text field contains the text "Sh"
+compose_message_text = receiver_device(resourceId="com.google.android.apps.messaging:id/compose_message_text").get_text()
+if "Sh" in compose_message_text:
+    print("Keypad used with sounds")
+else:
+    print("Keypad not used")
+print("Testcase 17 is pass")
+receiver_device(resourceId="com.android.systemui:id/recent_apps").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.launcher3:id/action_clear_all").click()
+################################################Testcase18####################################################################
+import uiautomator2 as ui2
+import time
+
+# Connect to the devices
+receiver_device_serial = "192.168.168.16:5555"
+receiver_device = ui2.Device(receiver_device_serial)
+time.sleep(2)
+receiver_device(text="Messages").click()
+time.sleep(2)
+receiver_device(text="Start chat").click()
+time.sleep(2)
+receiver_device.xpath('//android.widget.ScrollView').click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_1_1"]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_1_5"]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_0_6"]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_2_5"]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_1_5"]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_1_0"]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_2_7"]/android.widget.TextView[1]').click()
+time.sleep(1)
+receiver_device(text="Shubham").click()
+time.sleep(2)
+receiver_device(text="RCS message").click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_1_1"]/android.widget.TextView[1]').click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_1_5"]/android.widget.TextView[1]').click()
+# Check if the compose message text field contains the text "Sh"
+compose_message_text = receiver_device(resourceId="com.google.android.apps.messaging:id/compose_message_text").get_text()
+if "Sh" in compose_message_text:
+    print("Keypad used with sounds")
+else:
+    print("Keypad not used")
+print("testcase 18 is pass")
+receiver_device(resourceId="com.android.systemui:id/recent_apps").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.launcher3:id/action_clear_all").click()
+###############################################Testcase19######################################################################
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Connect to the devices
+receiver_device_serial = "192.168.168.16:5555"
+receiver_device = ui2.Device(receiver_device_serial)
+time.sleep(2)
+receiver_device(text="Messages").click()
+time.sleep(2)
+receiver_device(text="Start chat").click()
+time.sleep(2)
+if receiver_device(text="AAAAA").exists():
+ print("Contacts are available")
+else:
+ print("Contacts are not available")
+print("testcase 19 is pass")
+receiver_device(resourceId="com.android.systemui:id/recent_apps").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.launcher3:id/action_clear_all").click()
+############################################Testcase20########################################################################
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Connect to the device
+receiver_device_serial = "192.168.168.16:5555"
+receiver_device = ui2.Device(receiver_device_serial)
+
+# Pause for 2 seconds
+time.sleep(2)
+
+# Click on "Messages"
+receiver_device(text="Messages").click()
+
+# Pause for 2 seconds
+time.sleep(2)
+
+# Click on "Start chat"
+receiver_device(text="Start chat").click()
+
+# Pause for 2 seconds
+time.sleep(2)
+
+# Click on "AAAAA"
+receiver_device(text="AAAAA").click()
+
+# Pause for 2 seconds
+time.sleep(2)
+
+# Click on "Mobile+91 84486 97488"
+receiver_device(text="Mobile+91 84486 97488").click()
+
+# Pause for 2 seconds
+time.sleep(2)
+
+# Specify the XPath for the desired element
+element_xpath = '//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_bottom_symbol_1"]/android.widget.LinearLayout[1]/android.widget.ImageView[1]'
+
+# Perform a long press on the element
+element = receiver_device.xpath(element_xpath)
+element.long_click()
+
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(text="Text message").click()
+time.sleep(2)
+receiver_device.xpath('//*[@content-desc="Settings"]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]').click()
+time.sleep(2)
+receiver_device(resourceId="android:id/title", text="Dictionary").click()
+time.sleep(2)
+receiver_device(text="Personal dictionary").click()
+time.sleep(2)
+receiver_device(resourceId="android:id/title", text="All languages").click()
+time.sleep(2)
+receiver_device(resourceId="com.google.android.inputmethod.latin:id/0_resource_name_obfuscated").click()
+time.sleep(2)
+receiver_device(text="Type a word").set_text("Hello")
+time.sleep(2)
+receiver_device(text="Optional shortcut").set_text("Hi")
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.google.android.inputmethod.latin:id/0_resource_name_obfuscated", text="Hello")
+time.sleep(2)
+receiver_device(resourceId="com.google.android.inputmethod.latin:id/0_resource_name_obfuscated", description="Delete")
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/center_group").click()
+print("Test case 20 is pass")
+receiver_device(resourceId="com.android.systemui:id/recent_apps").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.launcher3:id/action_clear_all").click()
+###########################################Testcase21##########################################################################
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Connect to the devices
+receiver_device_serial = "192.168.168.16:5555"
+receiver_device = ui2.Device(receiver_device_serial)
+time.sleep(2)
+turn_off_command = f"adb -s {receiver_device_serial} shell input keyevent 26"
+turn_on_command = f"adb -s {receiver_device_serial} shell input keyevent 224"
+time.sleep(2)
+subprocess.run(turn_on_command, shell=True, check=True)
+time.sleep(2)
+receiver_device.swipe(500, 1500, 500, 500)  # Adjust the swipe coordinates as needed
+time.sleep(2)
+receiver_device(text="Messages").click()
+time.sleep(2)
+if receiver_device(text="Shubham").exists():
+ print("Contacts are available")
+else:
+ print("Contacts are not available")
+print("Test case 21 is pass")
+receiver_device(resourceId="com.android.systemui:id/recent_apps").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.launcher3:id/action_clear_all").click()
